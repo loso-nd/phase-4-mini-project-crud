@@ -5,6 +5,11 @@ class SpicesController < ApplicationController
         render json: spices, except: [:created_at, :updated_at]
     end
 
+    def show 
+        spice = Spice.find_by(id: params[:id])
+        render json: spice, except: [:created_at, :updated_at]
+    end
+
     #POST /spice
     def create 
         spice = Spice.create(spice_params)
